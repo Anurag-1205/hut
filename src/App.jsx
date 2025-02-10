@@ -7,7 +7,7 @@ function useTodos() {
   const [todos, setTodos] = useState([]);
   // fetch all todos from server
   useEffect(() => {
-    fetch("http://localhost:3000/todos", {
+    fetch("https://todo-backend-sand-three.vercel.app/todos", {
       method: "GET"
     }).then((res) => {
       res.json().then((data) => {
@@ -15,7 +15,7 @@ function useTodos() {
       })
     })
     setInterval(() => {
-      fetch("http://localhost:3000/todos", {
+      fetch("https://todo-backend-sand-three.vercel.app/todos", {
         method: "GET"
       }).then((res) => {
         res.json().then((data) => {
@@ -54,7 +54,7 @@ function App() {
             />
             <br /> <br />
             <Button variant="contained" onClick={() => {
-              fetch("http://localhost:3000/todos", {
+              fetch("https://todo-backend-sand-three.vercel.app/todos", {
                 method: "POST",
                 body: JSON.stringify({
                   title: document.getElementById("title").value,
@@ -105,7 +105,7 @@ function Todo(props) {
     {props.description}
     <span>  </span>
     <Button variant="outlined" onClick={() => {
-      fetch("http://localhost:3000/todos/" + props.id, {
+      fetch("https://todo-backend-sand-three.vercel.app/todos/" + props.id, {
         method: "DELETE",
         headers: {
           "Content-Type": "application/json"
